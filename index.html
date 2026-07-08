@@ -27,9 +27,10 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .hdr-right{display:flex;flex-direction:column;gap:6px;align-items:flex-end;min-width:min(100%,520px)}
 .control-shell{display:flex;flex-direction:column;gap:6px;padding:8px 10px;border-radius:12px;border:0.5px solid var(--br);background:color-mix(in oklab,var(--bg) 75%,var(--brand-lt));min-width:min(100%,520px)}
 .shell-label{font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--t3)}
-.mtabs{display:flex;gap:4px;flex-wrap:wrap}
+.mtabs{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.mtab-group{display:flex;align-items:center;gap:4px;border:0.5px solid var(--br);border-radius:999px;padding:2px 3px 2px 8px;background:color-mix(in oklab,var(--bg) 50%,var(--bg2));flex-wrap:wrap}
+.mtab-label{font-size:9px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--t3);margin-right:2px}
 .mtab{padding:5px 9px;font-size:11px;border-radius:999px;cursor:pointer;border:0.5px solid var(--br);background:var(--bg);color:var(--t2);transition:background-color .12s cubic-bezier(0.16,1,0.3,1),color .12s cubic-bezier(0.16,1,0.3,1),border-color .12s cubic-bezier(0.16,1,0.3,1);white-space:nowrap}
-.mtab:hover{background:var(--bg2)}.mtab.active{background:var(--brand);color:var(--neutral-inverse);border-color:var(--brand)}
 .metric-info-btn{width:26px;height:26px;padding:0;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:600}
 .ltoggs{display:flex;gap:5px;align-items:center;flex-wrap:wrap}
 .ltog{display:flex;align-items:center;gap:4px;font-size:10px;color:var(--t2);cursor:pointer;padding:3px 6px;border-radius:4px;border:0.5px solid var(--br);background:var(--bg2);transition:background-color .12s cubic-bezier(0.16,1,0.3,1),color .12s cubic-bezier(0.16,1,0.3,1),border-color .12s cubic-bezier(0.16,1,0.3,1)}
@@ -480,35 +481,56 @@ button.city-card:hover{background:var(--bg3)}
     <div class="control-shell">
       <div class="shell-label">Metric</div>
       <div class="mtabs" id="mtabs">
-      <button type="button" class="mtab active" data-m="hi" onclick="setM(this)">Health index</button>
-      <button type="button" class="mtab" data-m="le" onclick="setM(this)">Life expectancy</button>
-      <button type="button" class="mtab" data-m="as" onclick="setM(this)">Asthma</button>
-      <button type="button" class="mtab" data-m="la" onclick="setM(this)">Lead exposure</button>
-      <button type="button" class="mtab" data-m="va" onclick="setM(this)">Vacant housing</button>
-      <button type="button" class="mtab" data-m="pv" onclick="setM(this)">Poverty</button>
-      <button type="button" class="mtab" data-m="un" onclick="setM(this)">Unemployment</button>
-      <button type="button" class="mtab" data-m="hs" onclick="setM(this)">High school graduation</button>
-      <button type="button" class="mtab" data-m="fd" onclick="setM(this)">Food access</button>
-      <button type="button" class="mtab" data-m="gs" onclick="setM(this)">Green space</button>
-      <button type="button" class="mtab" data-m="cr" onclick="setM(this)">Crime reports</button>
-      <button type="button" class="mtab" data-m="sm" onclick="setM(this)">Smoking</button>
-      <button type="button" class="mtab" data-m="ob" onclick="setM(this)">Obesity</button>
-      <button type="button" class="mtab" data-m="db" onclick="setM(this)">Diabetes</button>
-      <button type="button" class="mtab" data-m="mh" onclick="setM(this)">Poor mental health</button>
-      <button type="button" class="mtab" data-m="pa" onclick="setM(this)">Physical inactivity</button>
-      <button type="button" class="mtab" data-m="bb" onclick="setM(this)">Broadband access</button>
-      <button type="button" class="mtab" data-m="rb" onclick="setM(this)">High rent burden</button>
-      <button type="button" class="mtab" data-m="ui" onclick="setM(this)">No health insurance</button>
-      <button type="button" class="mtab" data-m="gi" onclick="setM(this)">Income inequality</button>
-      <button type="button" class="mtab" data-m="ap" onclick="setM(this)">Air pollution</button>
-      <button type="button" class="mtab" data-m="ha" onclick="setM(this)">Housing cost burden</button>
-      <button type="button" class="mtab" data-m="hz" onclick="setM(this)">Reported 311 hazards</button>
-      <button type="button" class="mtab metric-info-btn" onclick="openMetricInfo()" aria-haspopup="dialog" aria-label="About this metric" title="About this metric">ⓘ</button>
-    </div>
+        <div class="mtab-group">
+          <div class="mtab-label">Health</div>
+          <button type="button" class="mtab active" data-m="hi" onclick="setM(this)">Health index</button>
+          <button type="button" class="mtab" data-m="le" onclick="setM(this)">Life expectancy</button>
+          <button type="button" class="mtab" data-m="as" onclick="setM(this)">Asthma</button>
+          <button type="button" class="mtab" data-m="sm" onclick="setM(this)">Smoking</button>
+          <button type="button" class="mtab" data-m="ob" onclick="setM(this)">Obesity</button>
+          <button type="button" class="mtab" data-m="db" onclick="setM(this)">Diabetes</button>
+          <button type="button" class="mtab" data-m="mh" onclick="setM(this)">Poor mental health</button>
+          <button type="button" class="mtab" data-m="pa" onclick="setM(this)">Physical inactivity</button>
+          <button type="button" class="mtab" data-m="ui" onclick="setM(this)">No health insurance</button>
+        </div>
+        <div class="mtab-group">
+          <div class="mtab-label">Economy</div>
+          <button type="button" class="mtab" data-m="pv" onclick="setM(this)">Poverty</button>
+          <button type="button" class="mtab" data-m="un" onclick="setM(this)">Unemployment</button>
+          <button type="button" class="mtab" data-m="gi" onclick="setM(this)">Income inequality</button>
+        </div>
+        <div class="mtab-group">
+          <div class="mtab-label">Housing</div>
+          <button type="button" class="mtab" data-m="va" onclick="setM(this)">Vacant housing</button>
+          <button type="button" class="mtab" data-m="rb" onclick="setM(this)">High rent burden</button>
+          <button type="button" class="mtab" data-m="ha" onclick="setM(this)">Housing cost burden</button>
+        </div>
+        <div class="mtab-group">
+          <div class="mtab-label">Environment</div>
+          <button type="button" class="mtab" data-m="la" onclick="setM(this)">Lead exposure</button>
+          <button type="button" class="mtab" data-m="gs" onclick="setM(this)">Green space</button>
+          <button type="button" class="mtab" data-m="ap" onclick="setM(this)">Air pollution</button>
+        </div>
+        <div class="mtab-group">
+          <div class="mtab-label">Services</div>
+          <button type="button" class="mtab" data-m="hs" onclick="setM(this)">High school graduation</button>
+          <button type="button" class="mtab" data-m="fd" onclick="setM(this)">Food access</button>
+          <button type="button" class="mtab" data-m="bb" onclick="setM(this)">Broadband access</button>
+          <button type="button" class="mtab" data-m="cr" onclick="setM(this)">Crime reports</button>
+          <button type="button" class="mtab" data-m="hz" onclick="setM(this)">Reported 311 hazards</button>
+        </div>
+        <button type="button" class="mtab metric-info-btn" onclick="openMetricInfo()" aria-haspopup="dialog" aria-label="About this metric" title="About this metric">ⓘ</button>
+      </div>  </div>
     </div>
     <div class="control-shell">
       <div class="shell-label">Layers and tools</div>
       <div class="ltoggs" role="toolbar" aria-label="Map layers and share controls">
+      <div style="display:flex;align-items:center;border:0.5px solid var(--br);border-radius:4px;overflow:hidden;margin-right:6px">
+        <button type="button" class="ltog on" id="view-map" onclick="setViewMode('map')" style="border:none;border-radius:0;border-right:0.5px solid var(--br)">Map</button>
+        <button type="button" class="ltog" id="view-table" onclick="setViewMode('table')" style="border:none;border-radius:0">Table</button>
+      </div>
+      <button type="button" class="ltog share-launch" onclick="copyDeepLink()" id="btn-copy-link">Copy link</button>
+      <button type="button" class="ltog share-launch" onclick="downloadCurrentCsv()">CSV</button>
       <button type="button" class="ltog on" id="lt-c" onclick="togL('c')" aria-pressed="true" aria-label="Toggle neighborhood map layer">
         <span class="ldot" style="background:var(--brand2)"></span><span>Map</span>
       </button>
@@ -563,12 +585,35 @@ button.city-card:hover{background:var(--bg3)}
   <div id="cur-yr">2023</div>
 </div>
 <main id="body" tabindex="-1">
-  <div id="map-wrap">
-    <div id="ml"><div class="spin"></div><span>Loading boundaries…</span></div>
-    <div id="balt-map"></div>
-    <div id="leg"><div id="leg-title">Health index</div><div id="leg-body"></div><div id="leg-meta" style="margin-top:4px;display:flex;flex-wrap:wrap;gap:4px"></div><div id="leg-source" style="margin-top:3px;font-size:9px;color:var(--t3)">BNIA / BCHD</div><div id="holc-leg" class="holc-leg"></div></div>
-  </div>
-  <div id="side">
+      <div id="map-wrap">
+        <div id="balt-map" role="region" aria-label="Interactive map"></div>
+        <div id="ml"><div class="spin"></div>Loading map...</div>
+        <div id="leg" aria-live="polite">
+          <div id="leg-title">Value</div>
+          <div id="leg-body"></div>
+          <div class="holc-leg" id="holc-leg-panel">
+            <div class="holc-title">HOLC grades</div>
+            <div class="holc-src">Richmond Fed open data</div>
+            <div class="holc-controls" id="holc-controls"></div>
+            <div class="holc-copy">Comparing current metrics against historical 1937 appraisal areas. Note boundaries often overlap. <a href="https://dsl.richmond.edu/panorama/redlining/" target="_blank" class="holc-more">Mapping Inequality</a></div>
+          </div>
+          <div class="src-n" id="leg-meta"></div>
+          <div class="src-n" id="leg-source"></div>
+        </div>
+      </div>
+      <div id="table-wrap" style="display:none;flex:1;overflow-y:auto;background:var(--bg);padding:14px">
+        <table id="data-table" style="width:100%;border-collapse:collapse;font-size:11px;text-align:left">
+          <thead>
+            <tr style="border-bottom:0.5px solid var(--br)">
+              <th style="padding:6px 8px;color:var(--t2)">Neighborhood</th>
+              <th style="padding:6px 8px;color:var(--t2)">Value</th>
+              <th style="padding:6px 8px;color:var(--t2)">Percentile</th>
+            </tr>
+          </thead>
+          <tbody id="data-table-body"></tbody>
+        </table>
+      </div>
+      <div id="side">
     <div id="compare-bar">
       <div class="pin-slot" id="slot-a">
         <button type="button" class="pin-slot-btn" id="slot-btn-a" onclick="focusSlot('a')" aria-pressed="true" aria-label="Set neighborhood pin A as active">
@@ -913,20 +958,17 @@ function metricInfoRow(key,value){return `<div class="metric-info-row"><div clas
 function openMetricInfo(){
   const info=METRIC_INFO[curM];if(!info)return;
   const label=MCFG[curM]?.label||curM;
-  const unit=MCFG[curM]?.unit||'',coverageRows=metricValues(curM,curYI),coverage=coverageRows.length,staleCoverage=coverageRows.filter(row=>row.stale).length,cityValue=cityMetricValue(curM,curYI),source=seriesProvenance(curM),benchmark=benchmarkProvenance(curM);
   document.getElementById('metric-info-title').textContent=`About ${label}`;
   const chips=metricInfoChips(curM);
   const chipBox=document.getElementById('metric-info-chips');
   chipBox.innerHTML=chips;
   chipBox.style.display=chips?'flex':'none';
   document.getElementById('metric-info-body').innerHTML=[
-    metricInfoRow('Metric',label),
-    metricInfoRow('Source',info.source),
-    metricInfoRow('Vintage',info.vintage),
-    metricInfoRow('Method',info.method),
-    metricInfoRow('Disclosure',info.disclosure),
-    metricInfoRow('Reliability',[source.detail,benchmark?.detail].filter(Boolean).join(' ')),
-    metricInfoRow('Coverage',`${coverage} neighborhood areas shown for ${YEARS[curYI]}${staleCoverage?`; ${staleCoverage} use the latest available source year`:''}${cityValue===null?'':`; city average ${cityValue}${unit}`}. Use the CSV button for the current table.`)
+    metricInfoRow('Definition',info.definition||'N/A'),
+    metricInfoRow('Importance',info.importance||'N/A'),
+    metricInfoRow('Methods',info.methods||'N/A'),
+    metricInfoRow('Sources',info.sources||'N/A'),
+    metricInfoRow('Code',`<a href="https://github.com/romulloataides/BALTI2/blob/main/update_data.R" target="_blank" style="color:var(--brand)">update_data.R on GitHub</a>`)
   ].join('');
   const modal=document.getElementById('metric-info-modal');
   modal.setAttribute('aria-hidden','false');
@@ -1091,32 +1133,32 @@ function benchRecord(level,yi){return BENCHMARKS?.[level]?.[String(YEARS[yi])]||
 function allBench(level,k){return YEARS.map((_,i)=>bench(level,k,i));}
 let MCFG={hi:{label:'Health index',min:25,max:87,inv:false,unit:''},le:{label:'Life expectancy',min:59,max:82,inv:false,unit:' years'},as:{label:'Asthma emergency visits',min:14,max:97,inv:true,unit:' per 1k'},la:{label:'Lead exposure',min:7,max:72,inv:true,unit:'%'},va:{label:'Vacant housing',min:1,max:28,inv:true,unit:'%'},pv:{label:'Poverty',min:3,max:52,inv:true,unit:'%'},un:{label:'Unemployment',min:2,max:25,inv:true,unit:'%'},hs:{label:'High school graduation',min:58,max:99,inv:false,unit:'%'},fd:{label:'Food access',min:0,max:100,inv:true,unit:'%'},gs:{label:'Green space',min:0,max:60,inv:false,unit:'%'},cr:{label:'Crime reports',min:0,max:100,inv:true,unit:''},sm:{label:'Smoking',min:5,max:45,inv:true,unit:'%'},ob:{label:'Obesity',min:15,max:55,inv:true,unit:'%'},db:{label:'Diabetes',min:5,max:25,inv:true,unit:'%'},mh:{label:'Poor mental health',min:8,max:30,inv:true,unit:'%'},pa:{label:'Physical inactivity',min:10,max:45,inv:true,unit:'%'},bb:{label:'Broadband access',min:55,max:100,inv:false,unit:'%'},rb:{label:'High rent burden',min:20,max:75,inv:true,unit:'%'},ui:{label:'No health insurance',min:1,max:18,inv:true,unit:'%'},gi:{label:'Income inequality',min:.25,max:.65,inv:true,unit:''},ap:{label:'Air pollution',min:6,max:9,inv:true,unit:' micrograms/m3'},ha:{label:'Housing cost burden',min:15,max:70,inv:true,unit:'%'},hz:{label:'Reported 311 hazards',min:0,max:250,inv:true,unit:' calls'},rt:{label:'Rat service requests',min:0,max:100,inv:true,unit:' calls'},dp:{label:'Illegal dumping requests',min:0,max:100,inv:true,unit:' calls'},ws:{label:'Water and sewer requests',min:0,max:100,inv:true,unit:' calls'}};
 const METRIC_INFO={
-  hi:{source:'Derived composite from le/as/la/pv/un/hs',vintage:'2016-2023',method:'Computed in the pipeline from component metrics after yearly citywide min-max normalization.',disclosure:'Derived dashboard index, not an official BNIA indicator.'},
-  le:{source:'BNIA Vital Signs ArcGIS Lifexp service',vintage:'2016-2018 neighborhood values; latest available value shown when newer selected years have no CSA coverage',method:'Neighborhood service values loaded at CSA level. The current BNIA service metadata lists life expectancy years through 2018.',disclosure:'Official BNIA neighborhood series with latest-available display for newer dashboard years.'},
-  as:{source:'CDC PLACES adult asthma prevalence',vintage:'2018-2023 backfilled',method:'Census tract estimates aggregated to CSA.',disclosure:'Proxy for asthma ED rate; not an emergency-department visit rate.'},
-  la:{source:'BNIA Vital Signs ArcGIS Ebll service',vintage:'2016-2023',method:'Neighborhood service values loaded at CSA level.',disclosure:'Official BNIA neighborhood series.'},
-  va:{source:'BNIA Vital Signs ArcGIS Vacant service',vintage:'2016-2023',method:'Neighborhood service values loaded at CSA level.',disclosure:'Official BNIA neighborhood series.'},
-  pv:{source:'BNIA Vital Signs ArcGIS Hhpov service',vintage:'2016-2023',method:'Neighborhood service values loaded at CSA level.',disclosure:'Official BNIA neighborhood series.'},
-  un:{source:'BNIA Vital Signs ArcGIS Unempr service',vintage:'2016-2023',method:'Neighborhood service values loaded at CSA level.',disclosure:'Official BNIA neighborhood series.'},
-  hs:{source:'BNIA Vital Signs ArcGIS Lesshs service',vintage:'2016-2023',method:'Neighborhood service values loaded at CSA level.',disclosure:'Official BNIA neighborhood series.'},
-  fd:{source:'USDA Food Access Research Atlas staged tract extract',vintage:'2019 static repeated across 2016-2023',method:'Low-income/low-access tract population share aggregated to CSA.',disclosure:'Static access proxy, not an annual food insecurity survey.'},
-  gs:{source:'Existing BALTI2 dashboard bundle',vintage:'2016-2023 staged series',method:'CSA-level values carried from the existing dashboard bundle while a matched source import is pending.',disclosure:'Staged neighborhood access context; compare relative values across CSAs.'},
-  cr:{source:'Existing BALTI2 dashboard bundle',vintage:'2016-2023 staged series',method:'CSA-level crime index carried from the existing dashboard bundle while a matched source import is pending.',disclosure:'Relative staged burden measure, not incident-level crime reporting.'},
-  sm:{source:'CDC PLACES tract CSMOKING',vintage:'2018-2023',method:'Tract centroids assigned to CSA.',disclosure:'Tract-level modeled prevalence shown at CSA level.'},
-  ob:{source:'CDC PLACES tract OBESITY',vintage:'2018-2023',method:'Tract centroids assigned to CSA.',disclosure:'Tract-level modeled prevalence shown at CSA level.'},
-  db:{source:'CDC PLACES tract DIABETES',vintage:'2018-2023',method:'Tract centroids assigned to CSA.',disclosure:'Tract-level modeled prevalence shown at CSA level.'},
-  mh:{source:'CDC PLACES tract MHLTH',vintage:'2018-2023',method:'Tract centroids assigned to CSA.',disclosure:'Tract-level modeled prevalence shown at CSA level.'},
-  pa:{source:'CDC PLACES tract LPA',vintage:'2018-2023',method:'Tract centroids assigned to CSA.',disclosure:'Tract-level modeled prevalence shown at CSA level.'},
-  bb:{source:'ACS 5-year tract table B28002',vintage:'2017-2023',method:'Population-weighted tract data to CSA.',disclosure:'Broadband starts in 2017 in the staged series.'},
-  rb:{source:'ACS 5-year tract table B25070',vintage:'2016-2023',method:'Population-weighted tract data to CSA.',disclosure:'ACS tract estimate aggregated to neighborhood.'},
-  ui:{source:'ACS 5-year tract table B27001',vintage:'2016-2023',method:'Population-weighted tract data to CSA.',disclosure:'ACS tract estimate aggregated to neighborhood.'},
-  gi:{source:'ACS 5-year tract table B19083',vintage:'2016-2023',method:'Population-weighted tract data to CSA.',disclosure:'ACS tract estimate aggregated to neighborhood.'},
-  ap:{source:'EPA EJScreen 2024 PM2.5 archived copy',vintage:'2024 static',method:'Baltimore EJScreen extract assigned to CSA.',disclosure:'Static across years; EPA removed EJScreen in 2025.'},
-  ha:{source:'HUD CHAS 2016-2020 Table 9 cost burden >30%',vintage:'2016-2020 static',method:'Cached Baltimore CHAS extract assigned to CSA.',disclosure:'Static across years.'},
-  hz:{source:'Open Baltimore 311 service requests',vintage:'2016-2023',method:'Service requests aggregated by CSA and year.',disclosure:'311 hazards proxy reflects reported service activity, not clinical risk.'},
-  rt:{source:'Open Baltimore 311 service requests',vintage:'2016-2023',method:'Rat/rodent service requests aggregated by CSA and year.',disclosure:'Service-request activity field; zero values can mean no cached subtype records in this bundle.'},
-  dp:{source:'Open Baltimore 311 service requests',vintage:'2016-2023',method:'Trash/dumping service requests aggregated by CSA and year.',disclosure:'Service-request activity field; zero values can mean no cached subtype records in this bundle.'},
-  ws:{source:'Open Baltimore 311 service requests',vintage:'2016-2023',method:'Water/sewer service requests aggregated by CSA and year.',disclosure:'Service-request activity field; zero values can mean no cached subtype records in this bundle.'}
+  hi:{definition:'Derived composite from life expectancy, asthma, lead, poverty, unemployment, and high school graduation.',importance:'Provides a single unified score to highlight neighborhoods facing overlapping vulnerabilities.',methods:'Computed in the pipeline after yearly citywide min-max normalization. Honest disclosure: hi is a derived composite, not an official BNIA indicator.',sources:'Derived from component metrics.'},
+  le:{definition:'Average life expectancy in years.',importance:'A core measure of population health and longevity.',methods:'Neighborhood service values loaded at CSA level.',sources:'BNIA Vital Signs ArcGIS Lifexp service.'},
+  as:{definition:'Estimated adult asthma prevalence.',importance:'Highlights areas where environmental factors or healthcare gaps contribute to chronic respiratory issues.',methods:'Census tract estimates aggregated to CSA.',sources:'CDC PLACES adult asthma prevalence. Honest disclosure: This is a CDC adult asthma prevalence proxy, not a local asthma ED rate.'},
+  la:{definition:'Percent of tested children with elevated blood lead levels.',importance:'Lead exposure has lifelong neurological and developmental consequences.',methods:'Neighborhood service values loaded at CSA level.',sources:'BNIA Vital Signs ArcGIS Ebll service.'},
+  va:{definition:'Percent of residential properties that are vacant.',importance:'Vacant properties affect neighborhood safety, property values, and community well-being.',methods:'Neighborhood service values loaded at CSA level.',sources:'BNIA Vital Signs ArcGIS Vacant service.'},
+  pv:{definition:'Percent of households living below the poverty line.',importance:'Poverty is a foundational driver of health and economic disparities.',methods:'Neighborhood service values loaded at CSA level.',sources:'BNIA Vital Signs ArcGIS Hhpov service.'},
+  un:{definition:'Percent of the labor force that is unemployed.',importance:'Employment access directly impacts household income and stability.',methods:'Neighborhood service values loaded at CSA level.',sources:'BNIA Vital Signs ArcGIS Unempr service.'},
+  hs:{definition:'Percent of population completing high school.',importance:'Education level correlates strongly with lifetime earnings and health outcomes.',methods:'Neighborhood service values loaded at CSA level.',sources:'BNIA Vital Signs ArcGIS Lesshs service.'},
+  fd:{definition:'Low-income/low-access tract population share.',importance:'Access to healthy food is a critical social determinant of health.',methods:'Tract population share aggregated to CSA.',sources:'USDA Food Access Research Atlas.'},
+  gs:{definition:'Percentage of area covered by green space.',importance:'Green space provides recreation, cooling, and air quality benefits.',methods:'CSA-level values carried from the existing dashboard bundle.',sources:'Existing BALTI2 dashboard bundle.'},
+  cr:{definition:'Crime reports index.',importance:'Neighborhood safety impacts physical and mental health.',methods:'CSA-level crime index carried from the existing dashboard bundle.',sources:'Existing BALTI2 dashboard bundle.'},
+  sm:{definition:'Estimated adult smoking prevalence.',importance:'Smoking is a leading cause of preventable diseases.',methods:'Tract centroids assigned to CSA.',sources:'CDC PLACES tract CSMOKING.'},
+  ob:{definition:'Estimated adult obesity prevalence.',importance:'Obesity is linked to numerous chronic health conditions.',methods:'Tract centroids assigned to CSA.',sources:'CDC PLACES tract OBESITY.'},
+  db:{definition:'Estimated adult diabetes prevalence.',importance:'Diabetes requires significant management and affects quality of life.',methods:'Tract centroids assigned to CSA.',sources:'CDC PLACES tract DIABETES.'},
+  mh:{definition:'Estimated prevalence of poor mental health for >= 14 days.',importance:'Mental health is integral to overall well-being and productivity.',methods:'Tract centroids assigned to CSA.',sources:'CDC PLACES tract MHLTH.'},
+  pa:{definition:'Estimated prevalence of physical inactivity.',importance:'Physical activity reduces risks for many chronic conditions.',methods:'Tract centroids assigned to CSA.',sources:'CDC PLACES tract LPA.'},
+  bb:{definition:'Percent of households with broadband access.',importance:'Digital access is essential for education, telehealth, and employment.',methods:'Population-weighted tract data to CSA.',sources:'ACS 5-year tract table B28002.'},
+  rb:{definition:'Percent of renting households spending >30% income on rent.',importance:'High rent burden limits resources for food, healthcare, and savings.',methods:'Population-weighted tract data to CSA.',sources:'ACS 5-year tract table B25070.'},
+  ui:{definition:'Percent of population without health insurance.',importance:'Uninsured individuals face barriers to accessing timely healthcare.',methods:'Population-weighted tract data to CSA.',sources:'ACS 5-year tract table B27001.'},
+  gi:{definition:'Income inequality (Gini index or similar).',importance:'High inequality often correlates with poorer health and social outcomes.',methods:'Population-weighted tract data to CSA.',sources:'ACS 5-year tract table B19083.'},
+  ap:{definition:'PM2.5 particulate matter level.',importance:'Air pollution exacerbates respiratory and cardiovascular conditions.',methods:'Baltimore EJScreen extract assigned to CSA.',sources:'EPA EJScreen 2024 PM2.5.'},
+  ha:{definition:'Percent of households with housing cost burden >30%.',importance:'Overall housing affordability impacts all aspects of household stability.',methods:'Cached Baltimore CHAS extract assigned to CSA.',sources:'HUD CHAS 2016-2020 Table 9.'},
+  hz:{definition:'Reported 311 hazards volume.',importance:'Indicates neighborhood concerns and engagement with city services.',methods:'Service requests aggregated by CSA and year.',sources:'Open Baltimore 311 service requests.'},
+  rt:{definition:'Rat/rodent service requests.',importance:'Indicates sanitation and pest control issues.',methods:'Service requests aggregated by CSA and year.',sources:'Open Baltimore 311 service requests.'},
+  dp:{definition:'Illegal dumping service requests.',importance:'Highlights areas needing sanitation intervention.',methods:'Service requests aggregated by CSA and year.',sources:'Open Baltimore 311 service requests.'},
+  ws:{definition:'Water/sewer service requests.',importance:'Indicates potential infrastructure issues.',methods:'Service requests aggregated by CSA and year.',sources:'Open Baltimore 311 service requests.'}
 };
 const HOLC_GRADE_INFO={A:{label:'Best',color:'#2ca25f'},B:{label:'Still Desirable',color:'#3182bd'},C:{label:'Declining',color:'#fee08b'},D:{label:'Hazardous',color:'#d73027'}};
 function applyMetricMetadata(){const asthma=asthmaMetricMeta();MCFG={...MCFG,as:{...MCFG.as,label:asthma.label,min:asthma.min,max:asthma.max,unit:asthma.unit}};const btn=document.querySelector('.mtab[data-m="as"]');if(btn)btn.textContent=asthma.tab;}
@@ -1202,7 +1244,7 @@ const EFFICACY_TRACKS=[
   {id:'vacancy',label:'Vacancy recurrence',metric:'va',reportFamilies:['vacant','data_challenge'],metricLabel:'Vacant housing'}
 ];
 const REDUCED_MOTION=window.matchMedia('(prefers-reduced-motion: reduce)');
-function buildURL(){const base=`${window.location.origin}${window.location.pathname}`;const params=new URLSearchParams();if(pinA) params.set('a',encodeNSA(pinA));if(pinB) params.set('b',encodeNSA(pinB));params.set('m',curM);params.set('y',YEARS[curYI]);params.set('lvl',benchMode);if(gapMode)params.set('gap','1');if(blindSpotsOnly)params.set('blind','1');if(adminMode)params.set('admin','1');if(pilotMode)params.set('pilot',pilotMode);return `${base}?${params.toString()}`;}
+function buildURL(){const base=`${window.location.origin}${window.location.pathname}`;const params=new URLSearchParams();if(pinA) params.set('csa',encodeNSA(pinA));if(pinB) params.set('b',encodeNSA(pinB));params.set('metric',curM);params.set('y',YEARS[curYI]);params.set('lvl',benchMode);if(gapMode)params.set('gap','1');if(blindSpotsOnly)params.set('blind','1');if(adminMode)params.set('admin','1');if(pilotMode)params.set('pilot',pilotMode);return `${base}?${params.toString()}`;}
 function encodeNSA(name){return name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/-+/g,'-').replace(/^-|-$/g,'');}
 function decodeNSA(slug){if(!slug)return null;const lower=slug.replace(/-/g,' ');for(const k of Object.keys(BASE)){if(k.toLowerCase()===lower)return k;if(k.toLowerCase().replace(/[^a-z0-9]+/g,' ').trim()===lower)return k;}return null;}
 function currentPilotConfig(){return pilotMode&&PILOT_META[pilotMode]?PILOT_META[pilotMode]:null;}
@@ -1368,7 +1410,7 @@ function updateModeUI(){
 function loadFromURL(){
   try{
     const p=new URLSearchParams(window.location.search);
-    const a=p.get('a'),b=p.get('b'),m=p.get('m'),y=p.get('y'),lvl=p.get('lvl'),pilot=p.get('pilot');
+    const a=p.get('a')||p.get('csa'),b=p.get('b'),m=p.get('m')||p.get('metric'),y=p.get('y'),lvl=p.get('lvl'),pilot=p.get('pilot');
     adminMode=p.get('admin')==='1';
     if(adminMode&&!adminAuthorized&&!adminUserEmail)adminAuthMessage='Admin mode now requires a signed-in Supabase admin session.';
     pilotMode=pilot&&PILOT_META[pilot]?pilot:null;
@@ -1553,8 +1595,8 @@ async function setHolcEnabled(on){
   updateHolcLegend();
 }
 function buildLeg(){const m=MCFG[curM];if(spendingMode){const summary=spendingCitySummary(),max=spendingMaxTotal();document.getElementById('leg-title').textContent='Capital spending';let h='';for(let i=4;i>=0;i--){const lo=max*(i/5),hi=max*((i+1)/5);h+=`<div class="lr"><div class="ls" style="background:${PAL_G[i]}"></div><span>${formatSpendingAmount(lo)}–${formatSpendingAmount(hi)}</span></div>`;}document.getElementById('leg-body').innerHTML=h||'<div class="lr"><span>Loading capital spending seed...</span></div>';document.getElementById('leg-meta').innerHTML=`${accuracyChip('CIP seed','proxy')}${summary.ready?accuracyChip(`${summary.count} records`,'derived'):accuracyChip('Loading','pending')}`;document.getElementById('leg-source').textContent=spendingSourceNote();return;}if(gapMode){document.getElementById('leg-title').textContent=`Gap severity · ${m.label}`;document.getElementById('leg-body').innerHTML=`<div class="lr"><div class="ls" style="background:${TOKENS.success}"></div><span>0–14 pts · aligned</span></div><div class="lr"><div class="ls" style="background:${TOKENS.warn}"></div><span>15–29 pts · diverging</span></div><div class="lr"><div class="ls" style="background:${TOKENS.danger}"></div><span>30+ pts · contradicting</span></div>`;document.getElementById('leg-meta').innerHTML=gapLegendLine(curM);document.getElementById('leg-source').textContent=gapSourceLine();return;}document.getElementById('leg-title').textContent=m.label;const p=m.inv?PAL_B:PAL_G,r=m.max-m.min;let h='';for(let i=4;i>=0;i--){const lo=+(m.min+(i/5)*r).toFixed(1),hi=+(m.min+((i+1)/5)*r).toFixed(1);h+=`<div class="lr"><div class="ls" style="background:${p[i]}"></div><span>${lo}–${hi}${m.unit}</span></div>`;}document.getElementById('leg-body').innerHTML=h;document.getElementById('leg-meta').innerHTML=legendAccuracyLine(curM);document.getElementById('leg-source').textContent=sourceLine();}
-function setM(btn){document.querySelectorAll('.mtab').forEach(b=>b.classList.remove('active'));btn.classList.add('active');curM=btn.dataset.m;if(spendingMode){spendingMode=false;updateSpendingToggleUI();}if(geo)geo.setStyle(getStyle);buildLeg();refreshSide();updateShareStrip();if(document.getElementById('metric-info-modal')?.classList.contains('open'))openMetricInfo();}
-function onSlide(v){curYI=parseInt(v);document.getElementById('cur-yr').textContent=YEARS[curYI];if(geo)geo.setStyle(getStyle);refreshSide();updateShareStrip();}
+function setM(btn){document.querySelectorAll('.mtab').forEach(b=>b.classList.remove('active'));btn.classList.add('active');curM=btn.dataset.m;if(spendingMode){spendingMode=false;updateSpendingToggleUI();}if(geo)geo.setStyle(getStyle);buildLeg();refreshSide();updateShareStrip();if(document.getElementById('metric-info-modal')?.classList.contains('open'))openMetricInfo();if(currentViewMode==='table')renderTableView();}
+function onSlide(v){curYI=parseInt(v);document.getElementById('cur-yr').textContent=YEARS[curYI];if(geo)geo.setStyle(getStyle);refreshSide();updateShareStrip();if(currentViewMode==='table')renderTableView();}
 function togglePlay(){const playBtn=document.getElementById('play-btn');if(REDUCED_MOTION.matches){curYI=(curYI+1)%8;document.getElementById('yr-slider').value=curYI;onSlide(curYI);toast('Reduced-motion mode is on, advanced one year.');return;}playing=!playing;playBtn.textContent=playing?'■':'▶';playBtn.setAttribute('aria-label',playing?'Pause timeline':'Play timeline');if(playing){playT=setInterval(()=>{curYI=(curYI+1)%8;document.getElementById('yr-slider').value=curYI;onSlide(curYI);if(curYI===7){clearInterval(playT);playing=false;playBtn.textContent='▶';playBtn.setAttribute('aria-label','Play timeline');}},800);}else clearInterval(playT);}
 function togL(l){ls[l]=!ls[l];const toggle=document.getElementById('lt-'+l);toggle.classList.toggle('on',ls[l]);toggle.setAttribute('aria-pressed',String(ls[l]));if(l==='holc'){setHolcEnabled(ls.holc);return;}if(l==='c'&&geo)geo.setStyle(getStyle);if(l==='r')rMks.forEach(m=>ls.r?m.addTo(map):map.removeLayer(m));if(l==='3'){if(window.Live311)Live311.setEnabled(ls['3']);else cMks.forEach(m=>ls['3']?m.addTo(map):map.removeLayer(m));}}
 function showLayer(l){if(l==='spend'){toggleSpendingMode(true);return;}if(!ls[l])togL(l);if(l==='3'&&window.Live311)Live311.refresh();}
@@ -2659,6 +2701,44 @@ document.getElementById('metric-info-modal').addEventListener('click',closeMetri
 document.getElementById('share-modal').addEventListener('click',closeModal);
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();if(deskOpen)toggleDesk(false);}});
 async function initMap(){document.getElementById('ylabels').innerHTML=YEARS.map(y=>`<span>${y}</span>`).join('');map=L.map('balt-map',{zoomControl:true,attributionControl:false}).setView([39.29,-76.62],11);map.createPane('holcPane');map.getPane('holcPane').style.zIndex=425;map.on('click',e=>{if(activeReportPinForm)captureReportLocation(activeReportPinForm,e.latlng);});L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{maxZoom:19}).addTo(map);try{const [baseResp, geoResp] = await Promise.all([fetch('data.json',{cache:'no-store'}),fetch('csa_boundaries.geojson',{cache:'no-store'})]);if(!baseResp.ok) throw new Error(`Failed to load data.json (${baseResp.status})`);if(!geoResp.ok) throw new Error(`Failed to load csa_boundaries.geojson (${geoResp.status})`);const normalizedData=normalizeDataset(await baseResp.json());DATA_META=normalizedData.meta||{};BASE=normalizedData.neighborhoods||{};BENCHMARKS=normalizedData.benchmarks||{city:{},state:{},federal:{}};applyMetricMetadata();const geoData = await geoResp.json();geo=L.geoJSON(geoData,{style:getStyle,onEachFeature:(feature,layer)=>{const name=geoName(feature.properties);const key=findK(name);layer.on({click:onNSAClick,mouseover:()=>{if(live311Pinning())return;const tooltip=mapTooltipHtml(key,name);layer.bindTooltip(tooltip,{sticky:true,direction:'top',opacity:0.95}).openTooltip();if(key!==pinA&&key!==pinB) layer.setStyle({weight:2,color:TOKENS.neutralInverse,fillOpacity:gapMode?0.92:0.9});},mouseout:()=>{if(live311Pinning())return;if(key===pinA||key===pinB) updatePinStyles();else geo.resetStyle(layer);}});}}).addTo(map);updateGapToggleUI();buildLeg();if(db){const loaded=await syncReportsFromSupabase();if(!loaded)resetFallbackReports();await syncAnnotationsFromSupabase();await syncPilotVotesFromSupabase();subscribeToReports();subscribeToAnnotations();subscribeToPilotVotes();}initMks();if(window.Live311){Live311.init({map,L});if(ls['3'])Live311.setEnabled(true);}map.fitBounds(geo.getBounds(),{padding:[12,12]});if(!map.getSize().x){const mro=new ResizeObserver(()=>{if(map.getSize().x||document.getElementById('balt-map').offsetWidth){map.invalidateSize();if(map.getZoom()>14)map.fitBounds(geo.getBounds(),{padding:[12,12]});mro.disconnect();}});mro.observe(document.getElementById('balt-map'));};document.getElementById('ml').style.display='none';loadFromURL();updatePinBar();updatePinStyles();refreshSide();updateShareStrip();}catch(err){console.error(err);document.getElementById('ml').innerHTML='<div style="max-width:280px;text-align:center;line-height:1.5"><strong>Dashboard data failed to load.</strong><br>Make sure <code>data.json</code> and <code>csa_boundaries.geojson</code> are published in the repo root.</div>';}}
+let currentViewMode = 'map';
+function setViewMode(mode) {
+  currentViewMode = mode;
+  document.getElementById('view-map').classList.toggle('on', mode === 'map');
+  document.getElementById('view-table').classList.toggle('on', mode === 'table');
+  document.getElementById('map-wrap').style.display = mode === 'map' ? 'block' : 'none';
+  document.getElementById('table-wrap').style.display = mode === 'table' ? 'block' : 'none';
+  if (mode === 'table') renderTableView();
+}
+function renderTableView() {
+  const metric = curM;
+  const cfg = MCFG[metric];
+  const unit = cfg.unit || '';
+  const rows = metricConcernRows(metric, curYI, 55);
+  const tbody = document.getElementById('data-table-body');
+  const validRows = rows.filter(r => r.value !== null);
+  const maxRank = validRows.length;
+  let html = '';
+  rows.forEach((r, idx) => {
+    if (r.value === null) return;
+    const percentile = maxRank > 1 ? Math.round(((maxRank - idx - 1) / (maxRank - 1)) * 100) : 100;
+    html += `<tr style="border-bottom:0.5px solid var(--br)">
+      <td style="padding:6px 8px;font-weight:500">${escapeHtml(shortNeighborhood(r.nsa))}</td>
+      <td style="padding:6px 8px">${r.value}${unit}</td>
+      <td style="padding:6px 8px">${percentile}th</td>
+    </tr>`;
+  });
+  tbody.innerHTML = html || '<tr><td colspan="3" style="padding:6px 8px;color:var(--t3)">No data available for this year.</td></tr>';
+}
+function copyDeepLink() {
+  const url = buildURL();
+  navigator.clipboard.writeText(url).then(() => {
+    toast('Link copied to clipboard!');
+  }).catch(err => {
+    console.error('Could not copy text: ', err);
+    toast('Failed to copy link.');
+  });
+}
 (async function startDashboard(){await initSupabase();await initMap();})();
 </script>
 </body>
