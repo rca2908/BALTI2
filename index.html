@@ -100,8 +100,8 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 #ylabels{display:flex;justify-content:space-between;font-size:9px;color:var(--t3);padding:0 1px}
 #yr-slider{width:100%;accent-color:var(--brand)}
 #cur-yr{font-size:13px;font-weight:500;color:var(--brand);min-width:34px;text-align:right;flex-shrink:0}
-#body{display:flex;flex:1;overflow:hidden}
-#map-wrap{flex:1;position:relative;overflow:hidden;background:linear-gradient(180deg,oklch(97.7% 0.009 255),oklch(96.1% 0.012 255))}
+#body{display:flex;flex:1;min-height:0;overflow:hidden}
+#map-wrap{flex:1;min-height:0;position:relative;overflow:hidden;background:linear-gradient(180deg,oklch(97.7% 0.009 255),oklch(96.1% 0.012 255))}
 #balt-map{position:absolute;inset:14px;width:calc(100% - 28px);height:calc(100% - 28px);border-radius:18px;overflow:hidden;border:0.5px solid color-mix(in oklab,var(--brand) 10%,var(--br))}
 #ml{position:absolute;inset:14px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,var(--bg2),var(--brand-lt));border-radius:18px;z-index:1000;font-size:12px;color:var(--t2);flex-direction:column;gap:6px}
 .spin{width:18px;height:18px;border:2px solid var(--br);border-top-color:var(--brand);border-radius:50%;animation:sp .7s linear infinite}@keyframes sp{to{transform:rotate(360deg)}}
@@ -117,7 +117,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .holc-mode.on,.holc-grade.on{background:var(--brand-lt);border-color:color-mix(in oklab,var(--brand) 25%,var(--br));color:var(--tx)}
 .holc-grade .ls{width:12px;height:8px}
 .holc-more{font-size:9px;color:var(--brand);text-decoration:none}
-#side{width:372px;flex-shrink:0;border-left:0.5px solid var(--br);overflow:hidden;display:flex;flex-direction:column;background:var(--bg)}
+#side{width:372px;min-height:0;flex-shrink:0;border-left:0.5px solid var(--br);overflow:hidden;display:flex;flex-direction:column;background:var(--bg)}
 #compare-bar{display:flex;align-items:stretch;border-bottom:0.5px solid var(--br);flex-shrink:0;min-height:64px;padding:8px;background:var(--bg2);gap:8px}
 .pin-slot{flex:1;display:flex;align-items:center;padding:10px 10px 8px;gap:6px;position:relative;transition:background-color .12s cubic-bezier(0.16,1,0.3,1),border-color .12s cubic-bezier(0.16,1,0.3,1);background:var(--bg);border:0.5px solid var(--br);border-radius:12px}
 .pin-slot:hover{background:color-mix(in oklab,var(--bg) 80%,var(--brand-lt))}
@@ -572,7 +572,6 @@ button.city-card:hover{background:var(--bg3)}
       </div>
     </div>
   </div>
-</div>
 <div id="time-bar">
   <div class="time-meta">
     <div class="time-kicker">Timeline</div>
@@ -703,6 +702,7 @@ button.city-card:hover{background:var(--bg3)}
     </div>
   </div>
 </main>
+</div>
 
 <div id="metric-info-modal" class="live311-modal" role="dialog" aria-modal="true" aria-labelledby="metric-info-title" aria-hidden="true">
   <div class="live311-box">
