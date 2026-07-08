@@ -110,7 +110,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "live311_storeget",
-      "community": 6,
+      "community": 16,
       "norm_label": "storeget()"
     },
     {
@@ -120,7 +120,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "live311_storeset",
-      "community": 6,
+      "community": 16,
       "norm_label": "storeset()"
     },
     {
@@ -190,7 +190,7 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "live311_parsearcgisresponse",
-      "community": 3,
+      "community": 16,
       "norm_label": "parsearcgisresponse()"
     },
     {
@@ -200,7 +200,7 @@
       "source_location": "L75",
       "_origin": "ast",
       "id": "live311_timeoutsignal",
-      "community": 3,
+      "community": 16,
       "norm_label": "timeoutsignal()"
     },
     {
@@ -210,7 +210,7 @@
       "source_location": "L80",
       "_origin": "ast",
       "id": "live311_arcgis",
-      "community": 3,
+      "community": 16,
       "norm_label": "arcgis()"
     },
     {
@@ -220,7 +220,7 @@
       "source_location": "L93",
       "_origin": "ast",
       "id": "live311_bboxkey",
-      "community": 6,
+      "community": 16,
       "norm_label": "bboxkey()"
     },
     {
@@ -280,7 +280,7 @@
       "source_location": "L126",
       "_origin": "ast",
       "id": "live311_handlepincontainerclick",
-      "community": 11,
+      "community": 6,
       "norm_label": "handlepincontainerclick()"
     },
     {
@@ -330,7 +330,7 @@
       "source_location": "L142",
       "_origin": "ast",
       "id": "live311_loadlayer",
-      "community": 6,
+      "community": 16,
       "norm_label": "loadlayer()"
     },
     {
@@ -510,7 +510,7 @@
       "source_location": "L247",
       "_origin": "ast",
       "id": "live311_ensuremodal",
-      "community": 11,
+      "community": 8,
       "norm_label": "ensuremodal()"
     },
     {
@@ -520,7 +520,7 @@
       "source_location": "L253",
       "_origin": "ast",
       "id": "live311_ensurepinguide",
-      "community": 11,
+      "community": 6,
       "norm_label": "ensurepinguide()"
     },
     {
@@ -530,7 +530,7 @@
       "source_location": "L260",
       "_origin": "ast",
       "id": "live311_hidereportmodal",
-      "community": 11,
+      "community": 8,
       "norm_label": "hidereportmodal()"
     },
     {
@@ -560,7 +560,7 @@
       "source_location": "L272",
       "_origin": "ast",
       "id": "live311_pincoord",
-      "community": 11,
+      "community": 6,
       "norm_label": "pincoord()"
     },
     {
@@ -590,7 +590,7 @@
       "source_location": "L275",
       "_origin": "ast",
       "id": "live311_reportpinicon",
-      "community": 11,
+      "community": 6,
       "norm_label": "reportpinicon()"
     },
     {
@@ -600,7 +600,7 @@
       "source_location": "L278",
       "_origin": "ast",
       "id": "live311_updatereportpin",
-      "community": 11,
+      "community": 6,
       "norm_label": "updatereportpin()"
     },
     {
@@ -620,7 +620,7 @@
       "source_location": "L294",
       "_origin": "ast",
       "id": "live311_setreportlocation",
-      "community": 11,
+      "community": 6,
       "norm_label": "setreportlocation()"
     },
     {
@@ -630,7 +630,7 @@
       "source_location": "L303",
       "_origin": "ast",
       "id": "live311_showpinguide",
-      "community": 11,
+      "community": 6,
       "norm_label": "showpinguide()"
     },
     {
@@ -700,7 +700,7 @@
       "source_location": "L331",
       "_origin": "ast",
       "id": "live311_beginpin",
-      "community": 11,
+      "community": 6,
       "norm_label": "beginpin()"
     },
     {
@@ -754,10 +754,20 @@
       "norm_label": "renderaddresssuggestions()"
     },
     {
-      "label": "shouldAutoAddress()",
+      "label": "clearAddressSuggestions()",
       "file_type": "code",
       "source_file": "live311.js",
       "source_location": "L351",
+      "_origin": "ast",
+      "id": "live311_clearaddresssuggestions",
+      "community": 3,
+      "norm_label": "clearaddresssuggestions()"
+    },
+    {
+      "label": "shouldAutoAddress()",
+      "file_type": "code",
+      "source_file": "live311.js",
+      "source_location": "L352",
       "_origin": "ast",
       "id": "live311_shouldautoaddress",
       "community": 3,
@@ -767,7 +777,7 @@
       "label": "goToAddress()",
       "file_type": "code",
       "source_file": "live311.js",
-      "source_location": "L352",
+      "source_location": "L353",
       "_origin": "ast",
       "id": "live311_gotoaddress",
       "community": 8,
@@ -777,7 +787,7 @@
       "label": "chooseAddress()",
       "file_type": "code",
       "source_file": "live311.js",
-      "source_location": "L366",
+      "source_location": "L368",
       "_origin": "ast",
       "id": "live311_chooseaddress",
       "community": 8,
@@ -787,7 +797,7 @@
       "label": "queueAddressSuggest()",
       "file_type": "code",
       "source_file": "live311.js",
-      "source_location": "L371",
+      "source_location": "L373",
       "_origin": "ast",
       "id": "live311_queueaddresssuggest",
       "community": 3,
@@ -797,7 +807,7 @@
       "label": "geocodeAddress()",
       "file_type": "code",
       "source_file": "live311.js",
-      "source_location": "L389",
+      "source_location": "L391",
       "_origin": "ast",
       "id": "live311_geocodeaddress",
       "community": 3,
@@ -807,7 +817,7 @@
       "label": "findAddress()",
       "file_type": "code",
       "source_file": "live311.js",
-      "source_location": "L400",
+      "source_location": "L402",
       "_origin": "ast",
       "id": "live311_findaddress",
       "community": 8,
@@ -817,7 +827,7 @@
       "label": "useGeo()",
       "file_type": "code",
       "source_file": "live311.js",
-      "source_location": "L408",
+      "source_location": "L410",
       "_origin": "ast",
       "id": "live311_usegeo",
       "community": 8,
@@ -827,7 +837,7 @@
       "label": "generatePacket()",
       "file_type": "code",
       "source_file": "live311.js",
-      "source_location": "L413",
+      "source_location": "L415",
       "_origin": "ast",
       "id": "live311_generatepacket",
       "community": 8,
@@ -837,7 +847,7 @@
       "label": "packetText()",
       "file_type": "code",
       "source_file": "live311.js",
-      "source_location": "L422",
+      "source_location": "L424",
       "_origin": "ast",
       "id": "live311_packettext",
       "community": 3,
@@ -847,7 +857,7 @@
       "label": "copyPacket()",
       "file_type": "code",
       "source_file": "live311.js",
-      "source_location": "L426",
+      "source_location": "L428",
       "_origin": "ast",
       "id": "live311_copypacket",
       "community": 3,
@@ -857,7 +867,7 @@
       "label": "openPortal()",
       "file_type": "code",
       "source_file": "live311.js",
-      "source_location": "L427",
+      "source_location": "L429",
       "_origin": "ast",
       "id": "live311_openportal",
       "community": 8,
@@ -867,7 +877,7 @@
       "label": "validatePasted()",
       "file_type": "code",
       "source_file": "live311.js",
-      "source_location": "L428",
+      "source_location": "L430",
       "_origin": "ast",
       "id": "live311_validatepasted",
       "community": 5,
@@ -877,7 +887,7 @@
       "label": "bboxAround()",
       "file_type": "code",
       "source_file": "live311.js",
-      "source_location": "L435",
+      "source_location": "L437",
       "_origin": "ast",
       "id": "live311_bboxaround",
       "community": 16,
@@ -887,7 +897,7 @@
       "label": "findCandidates()",
       "file_type": "code",
       "source_file": "live311.js",
-      "source_location": "L439",
+      "source_location": "L441",
       "_origin": "ast",
       "id": "live311_findcandidates",
       "community": 16,
@@ -897,7 +907,7 @@
       "label": "candidateHtml()",
       "file_type": "code",
       "source_file": "live311.js",
-      "source_location": "L449",
+      "source_location": "L451",
       "_origin": "ast",
       "id": "live311_candidatehtml",
       "community": 8,
@@ -907,7 +917,7 @@
       "label": "confirmCandidate()",
       "file_type": "code",
       "source_file": "live311.js",
-      "source_location": "L452",
+      "source_location": "L454",
       "_origin": "ast",
       "id": "live311_confirmcandidate",
       "community": 5,
@@ -917,7 +927,7 @@
       "label": "hav()",
       "file_type": "code",
       "source_file": "live311.js",
-      "source_location": "L457",
+      "source_location": "L459",
       "_origin": "ast",
       "id": "live311_hav",
       "community": 3,
@@ -927,7 +937,7 @@
       "label": "candidateMatches()",
       "file_type": "code",
       "source_file": "live311.js",
-      "source_location": "L462",
+      "source_location": "L464",
       "_origin": "ast",
       "id": "live311_candidatematches",
       "community": 16,
@@ -3114,6 +3124,16 @@
       "confidence_score": 1.0,
       "source": "live311",
       "target": "live311_chooseaddress"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "live311.js",
+      "source_location": "L351",
+      "weight": 1.0,
+      "source": "live311",
+      "target": "live311_clearaddresssuggestions",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -5430,11 +5450,33 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "live311.js",
+      "source_location": "L351",
+      "weight": 1.0,
+      "source": "live311_clearaddresssuggestions",
+      "target": "live311_renderaddresssuggestions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "live311.js",
       "source_location": "L374",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "live311_queueaddresssuggest",
       "target": "live311_renderaddresssuggestions"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "live311.js",
+      "source_location": "L357",
+      "weight": 1.0,
+      "source": "live311_gotoaddress",
+      "target": "live311_clearaddresssuggestions",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -7752,9 +7794,9 @@
       "source_file": "HANDOFF.md",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "handoff_session_handoff_baltimore_health_dashboard_balti2",
-      "target": "handoff_current_status_next_work",
-      "confidence_score": 1.0
+      "target": "handoff_current_status_next_work"
     },
     {
       "relation": "contains",
@@ -7792,9 +7834,9 @@
       "source_file": "HANDOFF.md",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "handoff_session_handoff_baltimore_health_dashboard_balti2",
-      "target": "handoff_repo_state",
-      "confidence_score": 1.0
+      "target": "handoff_repo_state"
     },
     {
       "relation": "contains",
@@ -7802,9 +7844,9 @@
       "source_file": "HANDOFF.md",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "handoff_session_handoff_baltimore_health_dashboard_balti2",
-      "target": "handoff_suggested_skills",
-      "confidence_score": 1.0
+      "target": "handoff_suggested_skills"
     },
     {
       "relation": "contains",
@@ -8528,5 +8570,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "a677d686302a03b0641f9b0f3aeb4208443459c3"
+  "built_at_commit": "8af9f79fdaa42eef4d5685123164222e8693c957"
 }

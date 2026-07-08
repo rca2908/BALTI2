@@ -1,16 +1,16 @@
 # Graph Report - BALTI2-work  (2026-07-08)
 
 ## Corpus Check
-- 29 files · ~240,303 words
+- 29 files · ~222,700 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 296 nodes · 531 edges · 22 communities (20 shown, 2 thin omitted)
+- 297 nodes · 534 edges · 21 communities (19 shown, 2 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 5 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `a677d686`
+- Built from commit: `8af9f79f`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -26,7 +26,6 @@
 - [[_COMMUNITY_Community 8|Community 8]]
 - [[_COMMUNITY_Community 9|Community 9]]
 - [[_COMMUNITY_Community 10|Community 10]]
-- [[_COMMUNITY_Community 11|Community 11]]
 - [[_COMMUNITY_Community 12|Community 12]]
 - [[_COMMUNITY_Community 13|Community 13]]
 - [[_COMMUNITY_Community 14|Community 14]]
@@ -64,7 +63,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (22 total, 2 thin omitted)
+## Communities (21 total, 2 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.09
@@ -79,8 +78,8 @@ Cohesion: 0.07
 Nodes (26): 1. Executive Summary, 2.1 BNIA Vital Signs, 2.2 City Health Dashboard, 2.3 CDC PLACES, 2.4 Open Baltimore 311, 2.5 ACS 5-Year Estimates, 2.6 EPA EJScreen, 2.7 Baltimore Area Survey (+18 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.15
-Nodes (17): addressQuery(), addressSuggestionItems(), arcgis(), copyPacket(), copySrLink(), copyText(), geocodeAddress(), packetText() (+9 more)
+Cohesion: 0.17
+Nodes (15): addressQuery(), addressSuggestionItems(), clearAddressSuggestions(), copyPacket(), copySrLink(), copyText(), geocodeAddress(), packetText() (+7 more)
 
 ### Community 4 - "Community 4"
 Cohesion: 0.14
@@ -91,16 +90,16 @@ Cohesion: 0.23
 Nodes (13): addFollowRecord(), confirmCandidate(), follow(), handleDeepLink(), normalizeFeature(), openSr(), queryExact(), sql() (+5 more)
 
 ### Community 6 - "Community 6"
-Cohesion: 0.21
-Nodes (13): bboxKey(), cancelPin(), clearReportPin(), closeReport(), finishPin(), hidePinGuide(), loadLayer(), openReport() (+5 more)
+Cohesion: 0.18
+Nodes (17): beginPin(), cancelPin(), clearReportPin(), closeReport(), ensurePinGuide(), finishPin(), handlePinContainerClick(), hidePinGuide() (+9 more)
 
 ### Community 7 - "Community 7"
 Cohesion: 0.22
 Nodes (12): BENCHMARK_METRICS, dataPath, deriveBenchmarkRecord(), INVERSE_METRICS, LEGACY_RATES, legacySeries(), mean(), migrated (+4 more)
 
 ### Community 8 - "Community 8"
-Cohesion: 0.24
-Nodes (12): candidateHtml(), chooseAddress(), findAddress(), generatePacket(), goToAddress(), now(), openPortal(), renderReport() (+4 more)
+Cohesion: 0.21
+Nodes (14): candidateHtml(), chooseAddress(), ensureModal(), findAddress(), generatePacket(), goToAddress(), hideReportModal(), now() (+6 more)
 
 ### Community 9 - "Community 9"
 Cohesion: 0.17
@@ -109,10 +108,6 @@ Nodes (11): 10. Optional CI secrets (GitHub), 1. Create a Supabase project, 2. R
 ### Community 10 - "Community 10"
 Cohesion: 0.20
 Nodes (9): Color strategy: Restrained, Component patterns, Data palette (choropleth + bars), Design System — Project Trace / Project Compass, Motion, Palette (OKLCH), Spacing rhythm, Typography (+1 more)
-
-### Community 11 - "Community 11"
-Cohesion: 0.24
-Nodes (10): beginPin(), ensureModal(), ensurePinGuide(), handlePinContainerClick(), hideReportModal(), pinCoord(), reportPinIcon(), setReportLocation() (+2 more)
 
 ### Community 12 - "Community 12"
 Cohesion: 0.27
@@ -131,8 +126,8 @@ Cohesion: 0.25
 Nodes (7): Asthma Metric Upgrade TODO, Citywide Min/Max Bounds Used (Current Snapshot), Composite Formula, Health Index (`hi`) Methodology, Missing-Data Rule, Normalization, Status
 
 ### Community 16 - "Community 16"
-Cohesion: 0.38
-Nodes (7): bboxAround(), candidateMatches(), cat(), findCandidates(), inWhere(), layerParams(), whereForCat()
+Cohesion: 0.18
+Nodes (14): arcgis(), bboxAround(), bboxKey(), candidateMatches(), cat(), findCandidates(), inWhere(), layerParams() (+6 more)
 
 ### Community 17 - "Community 17"
 Cohesion: 0.38
@@ -150,9 +145,9 @@ Nodes (6): API Keys To Get, BALTI2 Wiring Rule, City Health Dashboard Source Not
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `fetch()` connect `Community 0` to `Community 1`, `Community 3`?**
+- **Why does `fetch()` connect `Community 0` to `Community 16`, `Community 1`, `Community 3`?**
   _High betweenness centrality (0.231) - this node is a cross-community bridge._
-- **Why does `arcgis()` connect `Community 3` to `Community 0`, `Community 5`, `Community 6`, `Community 12`, `Community 16`?**
+- **Why does `arcgis()` connect `Community 16` to `Community 0`, `Community 3`, `Community 12`, `Community 5`?**
   _High betweenness centrality (0.073) - this node is a cross-community bridge._
 - **Why does `loadDashboardData()` connect `Community 1` to `Community 0`?**
   _High betweenness centrality (0.069) - this node is a cross-community bridge._

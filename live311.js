@@ -348,11 +348,13 @@ function renderAddressSuggestions(){
   const list=document.getElementById('live311-address-suggestions');
   if(list)list.innerHTML=addressSuggestionItems();
 }
+function clearAddressSuggestions(){state.addressSuggestions=[];renderAddressSuggestions();}
 function shouldAutoAddress(q){return q.length>=8&&/[a-z]/i.test(q);}
 async function goToAddress(address,magicKey){
   const r=state.report=state.report||{};
   r.address=address;
   const input=document.getElementById('live311-address');if(input)input.value=address;
+  clearAddressSuggestions();
   try{
     const hit=await geocodeAddress(address,magicKey);
     if(!hit){r.msg='Address not found. Try a street number plus street name.';renderReport(1);return;}

@@ -3,3 +3,4 @@
 # Never commit a Supabase service-role key or any other privileged secret.
 supabase/functions/.env
 supabase/functions/.env.*
+.playwright-cli/

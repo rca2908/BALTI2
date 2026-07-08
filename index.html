@@ -138,12 +138,12 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .pt:hover{background:var(--bg2)}.pt.active{background:var(--bg2);color:var(--tx);border-color:var(--br);border-bottom-color:var(--bg2)}
 .pane{padding:12px 14px;display:flex;flex-direction:column;gap:9px}
 .shd{font-size:10px;font-weight:500;color:var(--t2);padding-bottom:3px;border-bottom:0.5px solid var(--br);margin-top:3px}
-#share-modal{position:fixed;inset:0;z-index:2000;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.35)}
+#share-modal{position:fixed;inset:0;z-index:2000;display:none;align-items:center;justify-content:center;background:rgba(15,23,42,.58)}
 #share-modal.open{display:flex}
-#share-box{background:var(--bg);border:0.5px solid var(--br);border-radius:12px;padding:20px 22px;width:340px;display:flex;flex-direction:column;gap:12px;max-width:92vw}
+#share-box{background:#fff;color:#0f172a;border:1px solid #cbd5e1;border-radius:12px;padding:20px 22px;width:340px;display:flex;flex-direction:column;gap:12px;max-width:92vw;box-shadow:0 20px 48px rgba(15,23,42,.28)}
 .sbtitle{font-size:14px;font-weight:500}
 .sbsub{font-size:11px;color:var(--t2)}
-#share-url-box{background:var(--bg2);border:0.5px solid var(--br);border-radius:6px;padding:8px 10px;font-size:10px;color:var(--t2);word-break:break-all;font-family:var(--font-mono);line-height:1.5;max-height:80px;overflow-y:auto}
+#share-url-box{background:#f8fafc;border:1px solid #cbd5e1;border-radius:6px;padding:8px 10px;font-size:10px;color:#0f172a;word-break:break-all;font-family:var(--font-mono);line-height:1.5;max-height:80px;overflow-y:auto}
 .sb-row{display:flex;gap:6px}
 .sb-btn{flex:1;padding:8px;border-radius:6px;font-size:11px;font-weight:500;cursor:pointer;border:0.5px solid var(--br);background:var(--bg2);color:var(--tx);transition:background-color .12s cubic-bezier(0.16,1,0.3,1),color .12s cubic-bezier(0.16,1,0.3,1),border-color .12s cubic-bezier(0.16,1,0.3,1),opacity .12s ease-out}
 .sb-btn:hover{background:var(--bg3)}.sb-btn.primary{background:var(--brand);color:var(--neutral-inverse);border-color:var(--brand)}
@@ -366,21 +366,21 @@ button.city-card:hover{background:var(--bg3)}
 .desk-answer-copy{font-size:10px;color:var(--t2);line-height:1.5}
 .chat-shell{position:fixed;right:12px;bottom:12px;width:min(380px,calc(100vw - 24px));z-index:1680;display:none}
 .chat-shell.open{display:flex}
-.chat-panel{width:100%;border-radius:14px;border:0.5px solid var(--br);background:var(--bg);display:flex;flex-direction:column;gap:9px;padding:14px;max-height:min(72vh,560px);box-shadow:0 10px 30px rgba(15,23,42,.12)}
+.chat-panel{width:100%;border-radius:14px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;display:flex;flex-direction:column;gap:9px;padding:14px;max-height:min(72vh,560px);box-shadow:0 20px 48px rgba(15,23,42,.28)}
 .chat-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
 .chat-title{font-size:13px;font-weight:500}
 .chat-log{display:flex;flex-direction:column;gap:7px;overflow:auto;min-height:120px;padding-right:2px}
-.chat-msg{display:flex;flex-direction:column;gap:5px;padding:9px 10px;border-radius:10px;border:0.5px solid var(--br);background:var(--bg2)}
+.chat-msg{display:flex;flex-direction:column;gap:5px;padding:9px 10px;border-radius:10px;border:1px solid #d8e0ea;background:#f8fafc}
 .chat-msg.user{background:var(--brand-lt);border-color:color-mix(in oklab,var(--brand) 20%,var(--bg))}
-.chat-msg.assistant{background:var(--bg);border-color:var(--br)}
+.chat-msg.assistant{background:#fff;border-color:#d8e0ea}
 .chat-role{font-size:9px;font-weight:500;color:var(--t3);text-transform:uppercase;letter-spacing:.04em}
-.chat-copy{font-size:10px;color:var(--t2);line-height:1.55;white-space:pre-wrap}
+.chat-copy{font-size:10px;color:#334155;line-height:1.55;white-space:pre-wrap}
 .chat-cites{display:flex;gap:5px;flex-wrap:wrap}
 .chat-cite{display:inline-flex;padding:3px 7px;border-radius:999px;border:0.5px solid var(--br);background:var(--bg2);font-size:9px;color:var(--t2)}
 .chat-starters{display:flex;gap:6px;flex-wrap:wrap}
 .chat-chip{padding:4px 9px;border-radius:999px;border:0.5px solid var(--br);background:var(--bg2);color:var(--t2);font-size:9px;cursor:pointer}
 .chat-form{display:flex;flex-direction:column;gap:6px}
-.chat-input{width:100%;padding:7px 9px;border-radius:8px;border:0.5px solid var(--br);background:var(--bg2);color:var(--tx);font-size:11px;resize:vertical;min-height:58px}
+.chat-input{width:100%;padding:7px 9px;border-radius:8px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;font-size:11px;resize:vertical;min-height:58px}
 .chat-actions{display:flex;gap:6px;align-items:center}
 .chat-btn{padding:5px 10px;border-radius:999px;border:0.5px solid var(--br);background:var(--brand);color:var(--neutral-inverse);font-size:9px;cursor:pointer}
 .chat-btn.secondary{background:var(--bg2);color:var(--t2);border-color:var(--br)}
@@ -531,7 +531,6 @@ button.city-card:hover{background:var(--bg3)}
         <button type="button" class="ltog" id="view-table" onclick="setViewMode('table')" style="border:none;border-radius:0">Table</button>
       </div>
       <button type="button" class="ltog share-launch" onclick="copyDeepLink()" id="btn-copy-link">Copy link</button>
-      <button type="button" class="ltog share-launch" onclick="downloadCurrentCsv()">CSV</button>
       <button type="button" class="ltog on" id="lt-c" onclick="togL('c')" aria-pressed="true" aria-label="Toggle neighborhood map layer">
         <span class="ldot" style="background:var(--brand2)"></span><span>Map</span>
       </button>
@@ -1701,7 +1700,7 @@ function ensureSpendingData(){
   return spendingPromise;
 }
 function requestSpendingRefresh(){
-  if(spendingRows||spendingPromise)return;
+  if(spendingRows){if(spendingMode&&geo)geo.setStyle(getStyle);buildLeg();return;}
   ensureSpendingData().then(()=>{if(spendingMode&&geo)geo.setStyle(getStyle);buildLeg();refreshSide();});
 }
 function spendingKey(name){return matchNeighborhoodKey(name)||name;}
