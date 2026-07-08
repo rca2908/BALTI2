@@ -31,6 +31,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .mtab-group{display:flex;align-items:center;gap:4px;border:0.5px solid var(--br);border-radius:999px;padding:2px 3px 2px 8px;background:color-mix(in oklab,var(--bg) 50%,var(--bg2));flex-wrap:wrap}
 .mtab-label{font-size:9px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--t3);margin-right:2px}
 .mtab{padding:5px 9px;font-size:11px;border-radius:999px;cursor:pointer;border:0.5px solid var(--br);background:var(--bg);color:var(--t2);transition:background-color .12s cubic-bezier(0.16,1,0.3,1),color .12s cubic-bezier(0.16,1,0.3,1),border-color .12s cubic-bezier(0.16,1,0.3,1);white-space:nowrap}
+.mtab:hover{background:var(--bg2)}.mtab.active{background:var(--brand);color:var(--neutral-inverse);border-color:var(--brand)}
 .metric-info-btn{width:26px;height:26px;padding:0;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:600}
 .ltoggs{display:flex;gap:5px;align-items:center;flex-wrap:wrap}
 .ltog{display:flex;align-items:center;gap:4px;font-size:10px;color:var(--t2);cursor:pointer;padding:3px 6px;border-radius:4px;border:0.5px solid var(--br);background:var(--bg2);transition:background-color .12s cubic-bezier(0.16,1,0.3,1),color .12s cubic-bezier(0.16,1,0.3,1),border-color .12s cubic-bezier(0.16,1,0.3,1)}
@@ -591,7 +592,7 @@ button.city-card:hover{background:var(--bg3)}
         <div id="leg" aria-live="polite">
           <div id="leg-title">Value</div>
           <div id="leg-body"></div>
-          <div class="holc-leg" id="holc-leg-panel">
+          <div class="holc-leg" id="holc-leg">
             <div class="holc-title">HOLC grades</div>
             <div class="holc-src">Richmond Fed open data</div>
             <div class="holc-controls" id="holc-controls"></div>
@@ -607,7 +608,7 @@ button.city-card:hover{background:var(--bg3)}
             <tr style="border-bottom:0.5px solid var(--br)">
               <th style="padding:6px 8px;color:var(--t2)">Neighborhood</th>
               <th style="padding:6px 8px;color:var(--t2)">Value</th>
-              <th style="padding:6px 8px;color:var(--t2)">Percentile</th>
+              <th style="padding:6px 8px;color:var(--t2)">Concern rank</th>
             </tr>
           </thead>
           <tbody id="data-table-body"></tbody>
@@ -954,10 +955,10 @@ function legendAccuracyLine(metric){
   return chips.map(part=>accuracyChip(part.label,part.tone)).join('');
 }
 function metricInfoChips(metric){const source=seriesProvenance(metric);return accuracyChip(source.label,source.tone);}
-function metricInfoRow(key,value){return `<div class="metric-info-row"><div class="metric-info-key">${key}</div><div class="metric-info-value">${escapeHtml(value)}</div></div>`;}
+function metricInfoRow(key,value,raw=false){return `<div class="metric-info-row"><div class="metric-info-key">${key}</div><div class="metric-info-value">${raw?value:escapeHtml(value)}</div></div>`;}
 function openMetricInfo(){
   const info=METRIC_INFO[curM];if(!info)return;
-  const label=MCFG[curM]?.label||curM;
+  const label=MCFG[curM]?.label||curM,unit=MCFG[curM]?.unit||'',coverageRows=metricValues(curM,curYI),coverage=coverageRows.length,staleCoverage=coverageRows.filter(row=>row.stale).length,cityValue=cityMetricValue(curM,curYI),source=seriesProvenance(curM),benchmark=benchmarkProvenance(curM);
   document.getElementById('metric-info-title').textContent=`About ${label}`;
   const chips=metricInfoChips(curM);
   const chipBox=document.getElementById('metric-info-chips');
@@ -967,8 +968,10 @@ function openMetricInfo(){
     metricInfoRow('Definition',info.definition||'N/A'),
     metricInfoRow('Importance',info.importance||'N/A'),
     metricInfoRow('Methods',info.methods||'N/A'),
-    metricInfoRow('Sources',info.sources||'N/A'),
-    metricInfoRow('Code',`<a href="https://github.com/romulloataides/BALTI2/blob/main/update_data.R" target="_blank" style="color:var(--brand)">update_data.R on GitHub</a>`)
+    metricInfoRow('Sources',info.sources||info.source||'N/A'),
+    metricInfoRow('Reliability',[source.detail,benchmark?.detail].filter(Boolean).join(' ')),
+    metricInfoRow('Coverage',`${coverage} neighborhood areas shown for ${YEARS[curYI]}${staleCoverage?`; ${staleCoverage} use the latest available source year`:''}${cityValue===null?'':`; city average ${cityValue}${unit}`}. Use the CSV button for the current table.`),
+    metricInfoRow('Code',`<a href="https://github.com/romulloataides/BALTI2/blob/main/update_data.R" target="_blank" rel="noopener" style="color:var(--brand)">update_data.R on GitHub</a>`,true)
   ].join('');
   const modal=document.getElementById('metric-info-modal');
   modal.setAttribute('aria-hidden','false');
@@ -2318,7 +2321,7 @@ function chatYearIndex(question){
   if(matched){const idx=YEARS.indexOf(Number(matched[0]));if(idx>=0)return idx;}
   return curYI;
 }
-function chatMetricSource(metric){return METRIC_INFO[metric]?.source||seriesProvenance(metric).detail||'Dashboard data';}
+function chatMetricSource(metric){return METRIC_INFO[metric]?.source||METRIC_INFO[metric]?.sources||seriesProvenance(metric).detail||'Dashboard data';}
 function chatCitation(metric,csa,snap){return{metric,metric_label:MCFG[metric]?.label||metric,csa,years:[snap?.year||YEARS[curYI]],source:chatMetricSource(metric)};}
 function localChatRank(question){
   const q=String(question||'').toLowerCase(),rank=q.match(/\b(least|lowest|smallest|fewest|most|highest|largest|greatest)\b/);
@@ -2716,16 +2719,13 @@ function renderTableView() {
   const unit = cfg.unit || '';
   const rows = metricConcernRows(metric, curYI, 55);
   const tbody = document.getElementById('data-table-body');
-  const validRows = rows.filter(r => r.value !== null);
-  const maxRank = validRows.length;
   let html = '';
   rows.forEach((r, idx) => {
     if (r.value === null) return;
-    const percentile = maxRank > 1 ? Math.round(((maxRank - idx - 1) / (maxRank - 1)) * 100) : 100;
     html += `<tr style="border-bottom:0.5px solid var(--br)">
       <td style="padding:6px 8px;font-weight:500">${escapeHtml(shortNeighborhood(r.nsa))}</td>
       <td style="padding:6px 8px">${r.value}${unit}</td>
-      <td style="padding:6px 8px">${percentile}th</td>
+      <td style="padding:6px 8px">#${idx + 1}</td>
     </tr>`;
   });
   tbody.innerHTML = html || '<tr><td colspan="3" style="padding:6px 8px;color:var(--t3)">No data available for this year.</td></tr>';
